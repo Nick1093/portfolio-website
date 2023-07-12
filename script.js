@@ -10,19 +10,19 @@ var prevCommands = [];
 var commandPlace = -1;
 
 const projects = {
-  ETFDB: {
+  Room_Finder: {
     description:
-      "My first project at my first co-op, it was a full stack application that focused on ETFs and providing smart financial data for investors. There were algorithms and predicted data systems that truly empowered investors on the platform. To this day, it still gets millions of visitors every month!",
-    stack: ["Ruby on Rails", "Javascript", "MySQL", "AWS"],
+      "Collaborated and built web-application to help students find available study rooms. Designed Arduino light sensors that communicate with RESTful back-end API and update the database in PostgreSQL. Users can see availability per room of each floor, for each residence at UWO and the probability of the room being available in the next 24 hours",
+    stack: ["ReactJS", "MySQL", "NodeJS", "C++"],
   },
-  Propelor: {
+  MedNow: {
     description:
-      "This project was a platform for investors to be able to track their stocks, bonds, and much more! It gave lots of overarching data analysis and was a great tool for investors to use. I worked on the frontend, backend, and devops of the project, and it was a great experience! It leveraged the React component system for tons of reusable code and consistent site elements.",
-    stack: ["ReactJS", "NodeJS", "MySQL --> MongoDB (migrated)", "Docker"],
+      "Developed a web conferencing platform using React and Socket.io; utilized OpenAI’s ChatGPT API, and Agora.io to connect patients to doctors rendering video and audio in real time. Patients are placed in a waiting room where they can communicate with ChatGPT about their symptoms while they wait in the queue. Doctors can log in and see the list of patients in the queue and meet with the first patient in the queue when they are ready to provide consultation",
+    stack: ["ReactJS", "NodeJS", "Firebase", "Socket.io"],
   },
-  Atmos: {
+  Course_Automation: {
     description:
-      "I relocated to the United States to join Atmos as a SWE in 2022, and this was my favorite project yet! We built an enterprise level platform for VCs and startups to track their ESG data and make better decisions. I built every corner of this app with my team, from devops to the frontend and used industry standards and followed best practices! We raised millions of dollars!",
+      "Constructed a webscraper using Selenium, Beautiful Soup 4, and Python to automate the process of accessing my course website. The program takes a specified course of mine, logs in with my credentials, accesses the specified course’s week content with the associated Google Drive folder and opens the zoom link for the lecture",
     stack: [
       "PERN Stack (PostgreSQL, Express, React, NodeJS --> with Typescript)",
       "Digital Ocean",
@@ -30,10 +30,10 @@ const projects = {
     ],
     link: "Atmos.ai",
   },
-  LOGO: {
+  ANS_Application: {
     description: "Still in progress!",
-    stack: ["VueJS", "NextJS", "ReactJS", "AWS"],
-    link: "Logo.com",
+    stack: ["ReactJS", "Flask", "Firebase", "Selenium/BS4"],
+    // link: "Logo.com",
   },
 };
 
