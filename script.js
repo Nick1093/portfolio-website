@@ -12,34 +12,34 @@ var commandPlace = -1;
 const projects = {
   Room_Finder: {
     description:
-      "Collaborated and built web-application to help students find available study rooms. Designed Arduino light sensors that communicate with RESTful back-end API and update the database in PostgreSQL. Users can see availability per room of each floor, for each residence at UWO and the probability of the room being available in the next 24 hours",
-    stack: ["ReactJS", "MySQL", "NodeJS", "C++"],
+      "I collaborated with a team of 5 as a director of the Projects team for the Western Founders Network Club. We built a full-stack web application to help students find available study rooms in their residences by floor. I helped design Arduino light sensors that communicate with RESTful back-end API and update the database in PostgreSQL with the current status of the room (if light is on, room is occupied, if off, room is free). Users can see availability per room of each floor, for each residence at UWO and the probability of the room being available in the next 24 hours.",
+    stack: ["React", "MySQL", "Node.js", "C++", "Arduino"],
+    link: "https://github.com/WFN-Projects/RoomFinder",
   },
   MedNow: {
     description:
-      "Developed a web conferencing platform using React and Socket.io; utilized OpenAI’s ChatGPT API, and Agora.io to connect patients to doctors rendering video and audio in real time. Patients are placed in a waiting room where they can communicate with ChatGPT about their symptoms while they wait in the queue. Doctors can log in and see the list of patients in the queue and meet with the first patient in the queue when they are ready to provide consultation",
-    stack: ["ReactJS", "NodeJS", "Firebase", "Socket.io"],
+      "I was able to win MapleHack's Best Health Hack award by developing a web conferencing platform using React and Socket.io. I utilized OpenAI’s ChatGPT API, and Agora.io to connect patients to doctors rendering video and audio in real time. Patients are placed in a waiting room (queue server) where they can communicate with ChatGPT about their symptoms while they wait. Doctors can log in and authenticate through Firebase OAuth, and see the list of patients in the queue. They meet with the first patient in the queue when they are ready to provide consultation and are placed in a private meeting room with the patient.",
+    stack: ["React", "Node.js", "Firebase", "Socket.io", "Agora.io"],
+    link: "https://devpost.com/software/mednow-puajqc",
   },
-  Course_Automation: {
+  Automail: {
     description:
-      "Constructed a webscraper using Selenium, Beautiful Soup 4, and Python to automate the process of accessing my course website. The program takes a specified course of mine, logs in with my credentials, accesses the specified course’s week content with the associated Google Drive folder and opens the zoom link for the lecture",
+      "I created an application enabling users to streamline networking by sending cold emails to professionals identified through LinkedIn search results. I implemented Firebase OAuth for user authentication and sessions. The backend framework was built on Flask with the bulk of the backend implementing a web-scraping algorithm via Selenium and BS4 that scraped user inputted LinkedIn search results. The algorithm scrapes all results on all pages and constructs the individuals email based on email formats found on RocketReach. I also integrated Stripe to manage user subscription payments and premium accounts/features. Launch of the app is postponed in the meantime.",
     stack: [
-      "PERN Stack (PostgreSQL, Express, React, NodeJS --> with Typescript)",
-      "Digital Ocean",
-      "AWS",
+      "React",
+      "Flask",
+      "Python",
+      "Stripe",
+      "Selenium",
+      "BS4",
+      "Firebase",
     ],
-    link: "Atmos.ai",
-  },
-  ANS_Application: {
-    description: "Still in progress!",
-    stack: ["ReactJS", "Flask", "Firebase", "Selenium/BS4"],
-    // link: "Logo.com",
   },
 };
 
 const commands = {
   contact: () => {
-    window.open("mailto:nlam.hba2025@ivey.ca", "_blank").focus();
+    window.open("mailto:nicholasalexanderlam@gmail.com", "_blank").focus();
   },
   intro: () => {
     print(intro);
