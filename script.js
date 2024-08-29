@@ -5,11 +5,44 @@ const asciiArt =
   "███╗░░██╗██╗░█████╗░██╗░░██╗░█████╗░██╗░░░░░░█████╗░░██████╗  ██╗░░░░░░█████╗░███╗░░░███╗\n████╗░██║██║██╔══██╗██║░░██║██╔══██╗██║░░░░░██╔══██╗██╔════╝  ██║░░░░░██╔══██╗████╗░████║\n██╔██╗██║██║██║░░╚═╝███████║██║░░██║██║░░░░░███████║╚█████╗░  ██║░░░░░███████║██╔████╔██║\n██║╚████║██║██║░░██╗██╔══██║██║░░██║██║░░░░░██╔══██║░╚═══██╗  ██║░░░░░██╔══██║██║╚██╔╝██║\n██║░╚███║██║╚█████╔╝██║░░██║╚█████╔╝███████╗██║░░██║██████╔╝  ███████╗██║░░██║██║░╚═╝░██║\n╚═╝░░╚══╝╚═╝░╚════╝░╚═╝░░╚═╝░╚════╝░╚══════╝╚═╝░░╚═╝╚═════╝░  ╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝";
 
 const intro =
-  "Hi, I'm Nick Lam! Welcome to NickShell, my portfolio website. I am a dual degree student at Western University studying Computer Science and Business Administration from the Ivey School of Business. I'm passionate about building and learning, specifically within full-stack development and a recent interest in AI/ML. If you want to see my resume, type 'resume'.\n\nType 'help' or 'h' to see what other commands are available. Have fun exploring this site!";
+  "Hi, I'm Nick Lam! Welcome to NickShell, my portfolio website. I am a dual degree student at Western University studying Computer Science and Business Administration from the Ivey School of Business. I'm passionate about building and learning, specifically within full-stack development. If you want to see my resume, type 'resume'.\n\nType 'help' or 'h' to see what other commands are available. Have fun exploring this site!";
 var prevCommands = [];
 var commandPlace = -1;
 
 const projects = {
+  __init__: {
+    description:
+      "__init__() is a web app designed to simplify website creation by enabling users to generate and deploy websites through text or voice prompting. Users can prompt init to create HTML and CSS for any webpage, preview the design, and invite collaborators to work on the project in real-time. With two servers running WebSockets, one built with Node.js and Express for live collaboration, and the other with FastAPI and Python for prompt generation, init allows seamless interaction and quick deployment. The frontend, built with React, connects to a Firebase database and Github OAuth, providing real-time previews and one-click hosting.",
+    stack: [
+      "React",
+      "Node.js",
+      "Express",
+      "FastAPI",
+      "OpenAI API",
+      "Socket.IO",
+      "Firebase",
+      "Github OAuth",
+    ],
+  },
+  coTA: {
+    description:
+      "As a DeltaHacksX Winner, I developed an educational media platform, coTA, which converts lecture material documents into short-form TikTok-like content. I built a dual RESTful API and WebSocket backend using FastAPI to extract text from PowerPoint files and integrated Cohere's Retrieval Augmentation Generation (RAG) model to transform them into summaries. The system dynamically feeds data to the front-end through WebSockets, reducing content generation time from 2 minutes to 15 seconds.",
+    stack: [
+      "React",
+      "FastAPI",
+      "Python",
+      "WebSocket",
+      "Python-PPTX",
+      "Cohere RAG Model",
+    ],
+    link: "https://devpost.com/software/cota",
+  },
+  Arcade_Dancer: {
+    description:
+      "Arcade Dancer brings back the nostalgic feel of the Wii era, combining it with modern technologies to create an interactive dance game. Users join a virtual room using the AgoraRTC platform for real-time video and audio streaming, where they can compete in dance sessions. The application implements pose detection using MediaPipe in Python to analyze dance moves on the server side. The frontend, built with React, displays video feeds of participants on a virtual dance floor, while the backend, possibly using Flask and Socket.IO, handles server communication and pose analysis. Users can control dance sessions, choose music, and manage audio/video settings.",
+    stack: ["React", "AgoraRTC", "Python", "MediaPipe", "Flask", "Socket.IO"],
+    link: "https://devpost.com/software/arcade-dance",
+  },
   Room_Finder: {
     description:
       "I collaborated with a team of 5 as a director of the Projects team for the Western Founders Network Club. We built a full-stack web application to help students find available study rooms in their residences by floor. I helped design Arduino light sensors that communicate with RESTful back-end API and update the database in PostgreSQL with the current status of the room (if light is on, room is occupied, if off, room is free). Users can see availability per room of each floor, for each residence at UWO and the probability of the room being available in the next 24 hours.",
@@ -94,8 +127,11 @@ const commands = {
   instagram: () => {
     window.open("https://www.instagram.com/nick._lam/", "_blank").focus();
   },
+  twitter: () => {
+    window.open("https://twitter.com/nicklam_", "_blank").focus();
+  },
   linkedin: () => {
-    window.open("https://www.linkedin.com/in/n-a-l/", "_blank").focus();
+    window.open("https://twitter.com/nick_lam_93", "_blank").focus();
   },
   help: () => {
     print("Available commands:");
@@ -107,7 +143,7 @@ const commands = {
     print(
       " • git (g) project_name - Open the GitHub page for the project, if it exists."
     );
-    print(" • instagram (n) - Follow..me..on..Instagram!");
+    print(" • twitter (n) - Follow..me..on..Twitter!");
     print(" • contact (c) - Reach me via email.");
     print(" • clear (cl) - Clear the terminal window.");
     print(" • intro (i) - See the intro message again.");
@@ -143,6 +179,7 @@ const aliases = {
   p: "projects",
   g: "git",
   n: "instagram",
+  t: "twitter",
   c: "contact",
   cl: "clear",
   i: "intro",
