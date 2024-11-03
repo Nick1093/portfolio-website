@@ -10,6 +10,17 @@ var prevCommands = [];
 var commandPlace = -1;
 
 const projects = {
+  Nodes: {
+    description:
+      "Nodes is a Chrome Extension that allows individuals to unleash their networking potential by scraping LinkedIn search results to find individual's emails and allow them to send cold emails. A full-stack web application is also present, to allow users to track their scraped results, save scraped datasets to CSV files, as well as send cold emails to scraped datasets. Currently, we have over 50 users and are still growing! I'm proud that I was able to implement a prefix trie to get the company from an individual's bio - thus, not needing to click into a profile and being able to source individual's companies from their bios!",
+    stack: [
+      "React",
+      "FastAPI",,
+      "Firebase",
+      "JavaScript",
+    ],
+    link: "https://www.thenodes.ca/",
+  },
   __init__: {
     description:
       "__init__() is a web app designed to simplify website creation by enabling users to generate and deploy websites through text or voice prompting. Users can prompt init to create HTML and CSS for any webpage, preview the design, and invite collaborators to work on the project in real-time. With two servers running WebSockets, one built with Node.js and Express for live collaboration, and the other with FastAPI and Python for prompt generation, init allows seamless interaction and quick deployment. The frontend, built with React, connects to a Firebase database and Github OAuth, providing real-time previews and one-click hosting.",
