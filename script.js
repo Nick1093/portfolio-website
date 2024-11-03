@@ -236,14 +236,16 @@ const commands = {
   exp: (company_name = "") => {
     if (company_name.length == 0) {
       print("Work Experience:");
+      print("Use these exact names with 'exp' command:\n");
       for (const job in experience) {
-        print(` • ${experience[job].company} - ${experience[job].title}`);
+        print(` • ${job} - ${experience[job].company}`);
       }
+      print("\nExample: exp Gather_AI");
       return;
     }
     
     if (!(company_name in experience)) {
-      print("That position doesn't exist in my work history. Type 'exp' to see all positions.");
+      print("That position doesn't exist in my work history. Type 'exp' to see all positions and their exact names.");
       return;
     }
     
@@ -267,6 +269,14 @@ const commands = {
       print(` • ${exp.company} (${exp.date})`);
       print(`   ${exp.title} - ${exp.location}\n`);
     }
+  },
+  linkedin: () => {
+    window.open("https://linkedin.com/in/n-a-l", "_blank").focus();
+    print("Opening LinkedIn in a new tab...");
+  },
+  twitter: () => {
+    window.open("https://twitter.com/nicklam_", "_blank").focus();
+    print("Opening Twitter in a new tab...");
   }
 };
 
@@ -275,14 +285,14 @@ const aliases = {
   l: "linkedin",
   p: "projects",
   g: "git",
-  n: "twitter",
   c: "contact",
   cl: "clear",
   i: "intro",
   v: "ver",
   h: "help",
   w: "work",
-  e: "exp"
+  e: "exp",
+  t: "twitter"
 };
 
 function handleCommand(input) {
