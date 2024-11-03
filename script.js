@@ -188,10 +188,10 @@ const commands = {
     window.open("https://www.instagram.com/nick._lam/", "_blank").focus();
   },
   twitter: () => {
-    window.open("https://twitter.com/nicklam_", "_blank").focus();
+    window.open("https://x.com/nick_lam_93", "_blank").focus();
   },
   linkedin: () => {
-    window.open("https://twitter.com/nick_lam_93", "_blank").focus();
+    window.open("https://www.linkedin.com/in/n-a-l/", "_blank").focus();
   },
   help: () => {
     print("Available commands:");
@@ -275,7 +275,7 @@ const commands = {
     print("Opening LinkedIn in a new tab...");
   },
   twitter: () => {
-    window.open("https://twitter.com/nicklam_", "_blank").focus();
+    window.open("https://x.com/nick_lam_93", "_blank").focus();
     print("Opening Twitter in a new tab...");
   }
 };
