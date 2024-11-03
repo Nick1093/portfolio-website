@@ -81,6 +81,55 @@ const projects = {
   },
 };
 
+const experience = {
+  "Gather_AI": {
+    title: "Software Engineer Intern",
+    company: "Gather AI",
+    location: "Pittsburgh, PA",
+    date: "October 2023 - Present",
+    description: "Part of the Data Insights team, leveraging machine learning and data analysis to derive data insights for warehouse clients",
+    achievements: []
+  },
+  "RBC_Amplify": {
+    title: "Software Engineer Intern",
+    company: "RBC Amplify",
+    location: "Toronto, ON, Canada",
+    date: "May 2024 - Present",
+    description: "Worked on revamping RBC's Insurance Application Process using machine learning and microservices architecture.",
+    achievements: [
+      "Revamped Insurance Application Process using ML predictive modeling reducing client drop off by 10% and increasing straight-through processing by 40%",
+      "Engineered multilayered Microservice API with orchestration layer using FastAPI and Docker containerization",
+      "Developed comprehensive unit tests for reliability and scalability",
+      "Project selected for provisional patent and implementation into the bank"
+    ]
+  },
+  "Lobby_IQ": {
+    title: "Software Engineer Intern",
+    company: "Lobby IQ",
+    location: "London, ON, Canada",
+    date: "May 2024 - Present",
+    description: "Created ETL pipelines and web-scraping solutions for House of Commons and Senate data.",
+    achievements: [
+      "Built ETL Pipeline and web-scraping algorithms using Python, BS4, and Selenium",
+      "Automated pipeline using scheduled Azure Functions",
+      "Developed comprehensive unit tests for reliable data collection"
+    ]
+  },
+  "Labatt": {
+    title: "Software Engineer Intern",
+    company: "Labatt Brewing Company",
+    location: "Toronto, ON, Canada",
+    date: "May 2023 - September 2023",
+    description: "Led automation initiatives for Procure to Pay (PTP) Freight Manual Costing Processes.",
+    achievements: [
+      "Automated end-to-end PTP Freight Manual Costing Processes reducing manual workload by 100%",
+      "Developed automated data processing program using Python, Pandas, and Excel",
+      "Reduced manual data reporting time by 50% with 100% accuracy",
+      "Led Python workshop for 60-person Business Transformation Services team"
+    ]
+  }
+};
+
 const commands = {
   contact: () => {
     window.open("mailto:nicholasalexanderlam@gmail.com", "_blank").focus();
@@ -160,6 +209,8 @@ const commands = {
     print(" • intro (i) - See the intro message again.");
     print(" • ver (v) - Display the version of NickShell.");
     print(" • help (h) - Display available commands.");
+    print(" • exp (e) company_name - List all work experience or get details about a specific position");
+    print(" • work (w) - View my work history");
   },
   ilysm: () => {
     print("I love you too :)");
@@ -182,6 +233,41 @@ const commands = {
   helloworld: () => {
     print("Hello, World!");
   },
+  exp: (company_name = "") => {
+    if (company_name.length == 0) {
+      print("Work Experience:");
+      for (const job in experience) {
+        print(` • ${experience[job].company} - ${experience[job].title}`);
+      }
+      return;
+    }
+    
+    if (!(company_name in experience)) {
+      print("That position doesn't exist in my work history. Type 'exp' to see all positions.");
+      return;
+    }
+    
+    const job = experience[company_name];
+    print(`${job.title} at ${job.company}`);
+    print(`${job.location}`);
+    print(`${job.date}\n`);
+    print(job.description + "\n");
+    if (job.achievements.length > 0) {
+      print("Key Achievements:");
+      for (const achievement of job.achievements) {
+        print(` • ${achievement}`);
+      }
+    }
+  },
+  work: () => {
+    print("Work Experience:");
+    print("Type 'exp <company_name>' to learn more about a specific role.\n");
+    for (const job in experience) {
+      const exp = experience[job];
+      print(` • ${exp.company} (${exp.date})`);
+      print(`   ${exp.title} - ${exp.location}\n`);
+    }
+  }
 };
 
 const aliases = {
@@ -189,31 +275,26 @@ const aliases = {
   l: "linkedin",
   p: "projects",
   g: "git",
-  n: "instagram",
-  t: "twitter",
+  n: "twitter",
   c: "contact",
   cl: "clear",
   i: "intro",
   v: "ver",
   h: "help",
+  w: "work",
+  e: "exp"
 };
 
 function handleCommand(input) {
-  const args = input.split(/\s+/);
-  let cmd = args.shift().toLowerCase();
-
-  if (aliases.hasOwnProperty(cmd)) {
-    cmd = aliases[cmd];
-  }
-
-  if (commands.hasOwnProperty(cmd)) {
-    commands[cmd](args);
-  } else if (input.trim() === "") {
-    // Do nothing
+  const args = input.trim().split(" ");
+  const cmd = args[0].toLowerCase();
+  const actualCmd = aliases[cmd] || cmd;
+  
+  if (actualCmd in commands) {
+    args.shift();
+    commands[actualCmd](...args);
   } else {
-    print(
-      `'${cmd}' is not recognized as an internal or external command, operable program or batch file.`
-    );
+    print(`'${cmd}' is not recognized as a command. Type 'help' to see available commands.`);
   }
 }
 
