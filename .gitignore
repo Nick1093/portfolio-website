@@ -50,7 +50,7 @@ coverage/
 .stylelintcache
 
 # Ignore PDF resume
-Nicholas_Lam_Resume.pdf
+Nicholas_Lam.pdf
 
 # Ignore submodule directory
 portfolio-shell/

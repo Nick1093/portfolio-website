@@ -5,21 +5,32 @@ const asciiArt =
   "███╗░░██╗██╗░█████╗░██╗░░██╗░█████╗░██╗░░░░░░█████╗░░██████╗  ██╗░░░░░░█████╗░███╗░░░███╗\n████╗░██║██║██╔══██╗██║░░██║██╔══██╗██║░░░░░██╔══██╗██╔════╝  ██║░░░░░██╔══██╗████╗░████║\n██╔██╗██║██║██║░░╚═╝███████║██║░░██║██║░░░░░███████║╚█████╗░  ██║░░░░░███████║██╔████╔██║\n██║╚████║██║██║░░██╗██╔══██║██║░░██║██║░░░░░██╔══██║░╚═══██╗  ██║░░░░░██╔══██║██║╚██╔╝██║\n██║░╚███║██║╚█████╔╝██║░░██║╚█████╔╝███████╗██║░░██║██████╔╝  ███████╗██║░░██║██║░╚═╝░██║\n╚═╝░░╚══╝╚═╝░╚════╝░╚═╝░░╚═╝░╚════╝░╚══════╝╚═╝░░╚═╝╚═════╝░  ╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝";
 
 const intro =
-  "Hi, I'm Nick Lam! Welcome to NickShell, my portfolio website. I am a dual degree student at Western University studying Computer Science and Business Administration from the Ivey School of Business. I'm passionate about building and learning, specifically within full-stack development. If you want to see my resume, type 'resume'.\n\nType 'help' or 'h' to see what other commands are available. Have fun exploring this site!";
+  "Hi, I'm Nick Lam! Welcome to NickShell, my portfolio website. I graduated from Western University with an Honors in Computer Science (HBSc) and an Honors in Business Administration (HBA) from the Ivey Business School. I'm currently a Software Engineer II, Full-Stack at Gather AI, where I build data platforms and analytics tools for autonomous drone warehouse operations. I'm passionate about building and learning, specifically within full-stack development. If you want to see my resume, type 'resume'.\n\nType 'help' or 'h' to see what other commands are available. Have fun exploring this site!";
 var prevCommands = [];
 var commandPlace = -1;
 
 const projects = {
   Nodes: {
     description:
-      "Nodes is a Chrome Extension that allows individuals to unleash their networking potential by scraping LinkedIn search results to find individual's emails and allow them to send cold emails. A full-stack web application is also present, to allow users to track their scraped results, save scraped datasets to CSV files, as well as send cold emails to scraped datasets. Currently, we have over 50 users and are still growing! I'm proud that I was able to implement a prefix trie to get the company from an individual's bio - thus, not needing to click into a profile and being able to source individual's companies from their bios!",
+      "Nodes is a platform automating professional networking — both sourcing and sending emails — now with 1,000+ users. The Chrome Extension performs recursive iframe scraping across 7 concurrent iframes, parallelizing LinkedIn page loads to process 100+ profiles in under 30 seconds. A prefix tree with incremental traversal provides O(1) company-to-email format matching independent of dataset size across 500+ companies, with longest-match resolution and early termination on invalid prefixes. The rate-limited email pipeline uses Gmail SMTP with connection pooling, 20-person batch processing, and retry logic with exponential backoff. The full-stack web app lets users track scraped results, save datasets to CSV, and send cold emails at scale.",
     stack: [
+      "Next.js",
       "React",
-      "FastAPI",,
-      "Firebase",
-      "JavaScript",
+      "Node.js",
+      "Chrome Extension API",
+      "Gmail SMTP",
     ],
     link: "https://www.thenodes.ca/",
+  },
+  Juno: {
+    description:
+      "Juno is an AI-powered personalized news assistant that I'm currently building. Users share what they care about using a natural language prompt — like 'track AI chips and Silicon Valley raises, avoid sports on weekdays' — and Juno searches trusted sources, filters reputable outlets, and delivers a concise briefing as a short daily phone call at their preferred time. Every call appears on a dashboard with audio playback and the list of sources used. Currently serving 25 pilot users.",
+    stack: [
+      "Next.js",
+      "React",
+      "Node.js",
+    ],
+    link: "https://www.junoai.app/",
   },
   __init__: {
     description:
@@ -83,18 +94,25 @@ const projects = {
 
 const experience = {
   "Gather_AI": {
-    title: "Software Engineer Intern",
+    title: "Software Engineer II, Full-Stack (March 2026 - Present) | Software Engineer I, Full-Stack (October 2024 - February 2026)",
     company: "Gather AI",
     location: "Pittsburgh, PA",
-    date: "October 2023 - Present",
-    description: "Part of the Data Insights team, leveraging machine learning and data analysis to derive data insights for warehouse clients",
-    achievements: []
+    date: "October 2024 - Present",
+    description: "Building data platforms, analytics dashboards, and review tooling for autonomous drone warehouse inventory operations.",
+    achievements: [
+      "Exception Review Platform: Led development of a data labeling platform as part of an outsourcing initiative to audit 1,000+ drone-flagged exceptions daily, freeing 60 hours/week of internal QA capacity",
+      "Designed Cochran-formula statistical sampling with deterministic seeding and per-tenant fairness guarantees, minimizing review volume while maintaining 90% confidence coverage across all warehouse customers",
+      "Built real-time collaborative exception tagging using Server-Sent Events and RxJS, enabling simultaneous multi-reviewer workflows with live state synchronization",
+      "Multi-Tenant Dashboard: Designed and built a multi-tenant analytics dashboard that eliminated all manual metric compilation across facilities for the customer success team, serving inventory accuracy with period-over-period trend analysis",
+      "Engineered a nightly metrics precomputation pipeline replacing on-the-fly SQL aggregations with cron-scheduled jobs, caching 12 metrics across 60 facilities — drone flight performance, ML barcode accuracy, and volumetric pallet estimation — serving queries in sub-second response times",
+      "Built hierarchical multi-tenant authentication middleware with Auth0 JWTs, enforcing user-subset-of-organization tenant scoping with fail-secure defaults and Azure Application Insights audit logging"
+    ]
   },
   "RBC_Amplify": {
     title: "Software Engineer Intern",
     company: "RBC Amplify",
     location: "Toronto, ON, Canada",
-    date: "May 2024 - Present",
+    date: "May 2024 - August 2024",
     description: "Worked on revamping RBC's Insurance Application Process using machine learning and microservices architecture.",
     achievements: [
       "Revamped Insurance Application Process using ML predictive modeling reducing client drop off by 10% and increasing straight-through processing by 40%",
@@ -164,7 +182,7 @@ const commands = {
     }
   },
   resume: () => {
-    window.open("Nicholas_Lam_Resume.pdf", "_blank").focus();
+    window.open("Nicholas_Lam.pdf", "_blank").focus();
     print("Opening in a new tab...");
   },
   git: (project_name) => {
@@ -186,12 +204,7 @@ const commands = {
   },
   instagram: () => {
     window.open("https://www.instagram.com/nick._lam/", "_blank").focus();
-  },
-  twitter: () => {
-    window.open("https://x.com/nick_lam_93", "_blank").focus();
-  },
-  linkedin: () => {
-    window.open("https://www.linkedin.com/in/n-a-l/", "_blank").focus();
+    print("Opening Instagram in a new tab...");
   },
   help: () => {
     print("Available commands:");
@@ -209,8 +222,9 @@ const commands = {
     print(" • intro (i) - See the intro message again.");
     print(" • ver (v) - Display the version of NickShell.");
     print(" • help (h) - Display available commands.");
-    print(" • exp (e) company_name - List all work experience or get details about a specific position");
-    print(" • work (w) - View my work history");
+    print(" • skills (s) - View my technical skills.");
+    print(" • exp (e) company_name - List all work experience or get details about a specific position.");
+    print(" • work (w) - View my work history.");
   },
   ilysm: () => {
     print("I love you too :)");
@@ -232,6 +246,15 @@ const commands = {
   },
   helloworld: () => {
     print("Hello, World!");
+  },
+  skills: () => {
+    print("Technical Skills:\n");
+    print("Languages:");
+    print(" • C++, C, Python, Java, TypeScript, JavaScript, SQL, HTML & CSS\n");
+    print("Frameworks & Libraries:");
+    print(" • React, Next.js, Node.js, NestJS, Express.js, FastAPI, Flask, RxJS, Socket.io, TensorFlow\n");
+    print("Databases & Infrastructure:");
+    print(" • PostgreSQL, MongoDB, Firebase, Docker, AWS, Azure, Auth0");
   },
   exp: (company_name = "") => {
     if (company_name.length == 0) {
@@ -292,7 +315,8 @@ const aliases = {
   h: "help",
   w: "work",
   e: "exp",
-  t: "twitter"
+  t: "twitter",
+  s: "skills"
 };
 
 function handleCommand(input) {
