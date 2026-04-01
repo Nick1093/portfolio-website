@@ -49,8 +49,6 @@ coverage/
 # Optional stylelint cache
 .stylelintcache
 
-# Ignore PDF resume
-Nicholas_Lam.pdf
 
 # Ignore submodule directory
 portfolio-shell/
