@@ -5,7 +5,7 @@ const asciiArt =
   "███╗░░██╗██╗░█████╗░██╗░░██╗░█████╗░██╗░░░░░░█████╗░░██████╗  ██╗░░░░░░█████╗░███╗░░░███╗\n████╗░██║██║██╔══██╗██║░░██║██╔══██╗██║░░░░░██╔══██╗██╔════╝  ██║░░░░░██╔══██╗████╗░████║\n██╔██╗██║██║██║░░╚═╝███████║██║░░██║██║░░░░░███████║╚█████╗░  ██║░░░░░███████║██╔████╔██║\n██║╚████║██║██║░░██╗██╔══██║██║░░██║██║░░░░░██╔══██║░╚═══██╗  ██║░░░░░██╔══██║██║╚██╔╝██║\n██║░╚███║██║╚█████╔╝██║░░██║╚█████╔╝███████╗██║░░██║██████╔╝  ███████╗██║░░██║██║░╚═╝░██║\n╚═╝░░╚══╝╚═╝░╚════╝░╚═╝░░╚═╝░╚════╝░╚══════╝╚═╝░░╚═╝╚═════╝░  ╚══════╝╚═╝░░╚═╝╚═╝░░░░░╚═╝";
 
 const intro =
-  "Hi, I'm Nick Lam! Welcome to NickShell, my portfolio website. I graduated from Western University with an Honors in Computer Science (HBSc) and an Honors in Business Administration (HBA) from the Ivey Business School. I'm currently a Software Engineer II, Full-Stack at Gather AI, where I build data platforms and analytics tools for autonomous drone warehouse operations. I'm passionate about building and learning, specifically within full-stack development. If you want to see my resume, type 'resume'.\n\nType 'help' or 'h' to see what other commands are available. Have fun exploring this site!";
+  "Hi, I'm Nick Lam! Welcome to NickShell, my portfolio website. I graduated from Western University with an Honors in Computer Science (HBSc) and an Honors in Business Administration (HBA) from the Ivey Business School. I'm currently a Software Engineer II, Full-Stack at Gather AI, where I build data platforms and analytics tools for autonomous drone warehouse operations. I'm always hacking away at some new side project or learning something new. If you want to see my resume, type 'resume'.\n\nType 'help' or 'h' to see what other commands are available. Have fun exploring this site!";
 var prevCommands = [];
 var commandPlace = -1;
 
@@ -76,19 +76,6 @@ const projects = {
       "I was able to win MapleHack's Best Health Hack award by developing a web conferencing platform using React and Socket.io. I utilized OpenAI’s ChatGPT API, and Agora.io to connect patients to doctors rendering video and audio in real time. Patients are placed in a waiting room (queue server) where they can communicate with ChatGPT about their symptoms while they wait. Doctors can log in and authenticate through Firebase OAuth, and see the list of patients in the queue. They meet with the first patient in the queue when they are ready to provide consultation and are placed in a private meeting room with the patient.",
     stack: ["React", "Node.js", "Firebase", "Socket.io", "Agora.io"],
     link: "https://devpost.com/software/mednow-puajqc",
-  },
-  Automail: {
-    description:
-      "I created an application enabling users to streamline networking by sending cold emails to professionals identified through LinkedIn search results. I implemented Firebase OAuth for user authentication and sessions. The backend framework was built on Flask with the bulk of the backend implementing a web-scraping algorithm via Selenium and BS4 that scraped user inputted LinkedIn search results. The algorithm scrapes all results on all pages and constructs the individuals email based on email formats found on RocketReach. I also integrated Stripe to manage user subscription payments and premium accounts/features. Launch of the app is postponed in the meantime.",
-    stack: [
-      "React",
-      "Flask",
-      "Python",
-      "Stripe",
-      "Selenium",
-      "BS4",
-      "Firebase",
-    ],
   },
 };
 
